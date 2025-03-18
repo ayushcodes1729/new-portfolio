@@ -17,6 +17,6 @@ export default function Time() {
         return () => clearInterval(interval); 
     }, []);
     return(
-        <div >{ctime}</div>
+        <div className="bg-[#232323] p-2 rounded-lg">{ctime}</div>
     )
 }
