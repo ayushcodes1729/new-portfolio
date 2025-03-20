@@ -39,7 +39,7 @@ export default function Name() {
     });
     
     return (
-        <div className="flex flex-col w-screen h-[80vh] overflow-hidden">
+        <div className="flex flex-col w-screen h-[70vh] overflow-hidden">
             <div className="px-10">
                 <Image src="/me-comp.png" alt="my-image" width={100} height={100} className="rounded-full" />
             </div>
@@ -50,8 +50,8 @@ export default function Name() {
                     <div ref={marqueeRef} className="flex whitespace-nowrap">
                         {/* Dynamically duplicate text for smooth infinite scroll */}
                         {Array.from({ length: textCount }).map((_, index) => (
-                            <h1 key={index} className="text-[10rem] font-medium leading-40">
-                                - Ayush - Kumar -
+                            <h1 key={index} className="text-[9rem] font-medium leading-40">
+                                - Ayush  Kumar -
                             </h1>
                         ))}
                     </div>
