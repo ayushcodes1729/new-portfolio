@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Time from "./components/time";
 import Resume from "./components/resume";
 import Name from "./components/name";

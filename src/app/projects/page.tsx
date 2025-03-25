@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa6";
 import { FaLink } from "react-icons/fa";
@@ -43,39 +43,6 @@ export default function Projects() {
 
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
     const videoRefs = useRef<(HTMLVideoElement | null)[]>(projects.map(() => null))
-
-    const videoPlay = (index: number) => {
-        const video = videoRefs.current[index]
-        if (video) {
-            const playVideo = video.play();
-
-            if (playVideo !== undefined) {
-                playVideo.then(
-                    () => {
-                        console.log("Video Played successfully");
-                    }
-                )
-                    .catch(
-                        () => {
-                            console.log("Video couldn't be played");
-                        }
-                    )
-            }
-        }
-        else {
-            console.log("Video not found");
-        }
-    }
-
-    const videoPause = (index: number) => {
-        const video = videoRefs.current[index]
-        if (video) {
-            video.pause();
-        }
-        else {
-            console.log("Video not found");
-        }
-    }
 
     return (
         <>
