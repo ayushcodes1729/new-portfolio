@@ -13,7 +13,6 @@ export default function Projects() {
         {
             name: "Dev4u",
             description: "A tinder for developers, where devs can connect with each other",
-            source: "/Dev4u - Google Chrome 2025-02-19 22-59-25.mp4",
             thumb: "/Dev4uThumb.png",
             link: "https://app.dev4u.live/",
             github: "https://github.com/ayushcodes1729/Dev4u-web"
@@ -21,7 +20,6 @@ export default function Projects() {
         {
             name: "React Jobs",
             description: "A job board where recruiters can add jobs and employees can see the jobs",
-            source: "/React jobs - Google Chrome 2025-03-25 01-36-14.mp4",
             thumb: "/ReacJobsThumb.png",
             link: "https://react-jobs-steel.vercel.app/",
             github: "https://github.com/ayushcodes1729/React-jobs"
@@ -29,18 +27,16 @@ export default function Projects() {
         {
             name: "Isht World - Frontent UI",
             description: "Frontend of an educational courses selling website",
-            source: "/React jobs - Google Chrome 2025-03-25 01-36-14.mp4",
-            thumb: "/ReacJobsThumb.png",
-            link: "https://react-jobs-steel.vercel.app/",
-            github: "https://github.com/ayushcodes1729/React-jobs"
+            thumb: "/IshtThumb.png",
+            link: "https://isht-world.vercel.app/index.html",
+            github: "https://github.com/ayushcodes1729/isht-world"
         },
         {
             name: "Medical Wholesale- Frontent UI",
             description: "Frontend of an educational courses selling website",
-            source: "/React jobs - Google Chrome 2025-03-25 01-36-14.mp4",
-            thumb: "/ReacJobsThumb.png",
-            link: "https://react-jobs-steel.vercel.app/",
-            github: "https://github.com/ayushcodes1729/React-jobs"
+            thumb: "/MedicThumb.png",
+            link: "https://doctor-portal-one.vercel.app/",
+            github: "https://github.com/ayushcodes1729/doctor-portal"
         },
         // ... other projects
     ];
@@ -93,51 +89,43 @@ export default function Projects() {
                         onMouseEnter={(e) => {
                             e.currentTarget.style.boxShadow = "rgba(255, 255, 255, 0.3) 0px 5px 15px";
                             setHoveredIndex(index);
-                            videoPause(index);
                         }}
                         onMouseLeave={(e) => {
                             e.currentTarget.style.boxShadow = "rgba(255, 255, 255, 0.1) 0px 5px 15px";
                             setHoveredIndex(null);
-                            videoPlay(index);
                         }}
                     >
-                        <video
-                            ref={(el) => {
-                                videoRefs.current[index] = el
-                            }}
-                            src={project.source}
-                            preload="metadata"
-                            loop
-                            muted
-                            autoPlay
-                            className="w-full"
-                        ></video>
+                        <Image
+                            src={project.thumb}
+                            priority
+                            width={200}
+                            height={100}
+                            alt="thumb"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            className="w-full h-full object-cover"
+                        />
 
                         {/* Project Details */}
-                        <div className={`absolute left-0 bottom-0 w-full px-4 py-4 
+                        <div className={`absolute left-0 bottom-0 w-full h-full flex flex-col justify-end px-4 py-4 
                             bg-black/60 text-white
                             ${hoveredIndex === index ? 'opacity-100' : 'opacity-0'} 
                             transition-opacity duration-500`}>
-                            <span className="xl:text-3xl text-xl font-semibold text-indigo-300">{project.name}</span>
+                            <span className="xl:text-3xl text-xl font-semibold text-white">{project.name}</span>
                             <p className="xl:text-xl text-base mb-2">{project.description}</p>
-                            <div className="flex w-full justify-between">
+                            <div className=" absolute top-0 right-0 w-[25%] p-2 flex justify-between gap-1">
                                 <Link
                                     href={project.github}
                                     target="_blank"
-                                    className="flex justify-center items-center gap-2 py-1 border w-[40%] text-center border-white/50 
-                                hover:bg-white/20 transition-colors text-sm"
+                                    className="flex justify-center items-center gap-2 py-1 text-center rounded-full p-1 text-sm"
                                 >
-                                    <FaGithub/>
-                                    GitHub
+                                    <FaGithub className="text-2xl"/>
                                 </Link>
                                 <Link
                                     href={project.link}
                                     target="_blank"
-                                    className="flex justify-center items-center gap-2 py-1 border w-[40%] text-center border-white/50 
-                                hover:bg-white/20 transition-colors text-sm"
+                                    className="flex justify-center items-center gap-2 py-1 text-center rounded-full p-1 text-sm"
                                 >
-                                    <FaLink/>
-                                    Live Link
+                                    <FaLink  className="text-2xl"/>
                                 </Link>
 
                             </div>
