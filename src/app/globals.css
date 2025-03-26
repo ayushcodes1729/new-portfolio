@@ -24,3 +24,95 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.filled-circle {
+  animation: traverse 10s linear infinite;
+}
+
+.symbol {
+  animation: to-fro 10s linear infinite;
+}
+
+.hollow-circle {
+  animation: circular 8s linear infinite;
+}
+
+.hollow-square {
+  animation: rotate 15s linear infinite;
+}
+
+.filled-square {
+  animation: rotate 14s linear infinite;
+}
+
+@keyframes traverse {
+  0% {
+      transform: translateY(0) translateX(0);
+  }
+
+  30% {
+      transform: translateY(-20px) translateX(20px);
+  }
+
+  60% {
+      transform: translateY(0) translateX(50px);
+  }
+
+  100% {
+      transform: translateY(0) translateX(0);
+  }
+}
+
+@keyframes circular {
+  0% {
+      transform: translateY(0) translateX(0);
+  }
+
+  25% {
+      transform: translateY(-10px) translateX(20px);
+  }
+
+  50% {
+      transform: translateY(0) translateX(40px);
+  }
+
+  75% {
+      transform: translateY(10px) translateX(20px);
+  }
+
+  100% {
+      transform: translateY(0) translateX(0);
+  }
+}
+
+@keyframes to-fro {
+  0% {
+      transform: translateY(0) translateX(0);
+  }
+
+  25% {
+      transform: translateY(-2px) translateX(-10px);
+  }
+
+  50% {
+      transform: translateY(0) translateX(10px);
+  }
+
+  75% {
+      transform: translateY(0) translateX(-10px);
+  }
+
+  100% {
+      transform: translateY(0) translateX(0);
+  }
+}
+
+@keyframes rotate {
+  0% {
+      transform: rotate(0deg);
+  }
+
+  100% {
+      transform: rotate(360deg);
+  }
+}

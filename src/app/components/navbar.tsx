@@ -123,7 +123,7 @@ export default function Navbar() {
         },
         {
             id: 'Blog',
-            href: '/blog',
+            href: '/blogs',
             icon: <ImBlog className="w-4 h-4" />
         }
     ];
@@ -131,7 +131,7 @@ export default function Navbar() {
     const socialLinks = [
         {
             id: 'Twitter',
-            href: 'https://twitter.com',
+            href: 'https://x.com/ayushcodesweb',
             icon: <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none">
                 <path opacity="0.25" d="M20.9999 7.5C21.4999 15 15.9999 21 8.99995 21C6.58804 21 4.17613 20.6768 2.28388 19.7706C1.85051 19.5631 2.0199 18.985 2.49936 18.9532C4.82944 18.7987 6.75765 18.2423 7.99995 17C11.0001 14 11.5 13 12.2646 9.02396C12.0933 8.54804 11.9999 8.03492 11.9999 7.5C11.9999 5.01472 14.0147 3 16.4999 3C18.0181 3 19.3607 3.75182 20.1757 4.90346L21.8929 4.65815C22.3207 4.59703 22.6194 5.07087 22.3796 5.43047L20.9999 7.5Z" fill="currentColor"></path>
                 <path d="M7.99998 16.9999C2.58358 15.1944 1.64928 8.49939 2.62226 5.00708C2.73651 4.59701 3.26964 4.59488 3.48453 4.96234C5.14601 7.80359 8.30518 9.38991 12.2646 9.02385C18.5 9.02385 17 19.9999 7.99998 16.9999Z" fill="currentColor"></path>
@@ -139,7 +139,7 @@ export default function Navbar() {
         },
         {
             id: 'Github',
-            href: 'https://github.com',
+            href: 'https://github.com/ayushcodes1729',
             icon: <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
                 <path fill="none" d="M0 0h24v24H0z"></path>
                 <path d="M12 2C6.475 2 2 6.475 2 12a9.994 9.994 0 0 0 6.838 9.488c.5.087.687-.213.687-.476 0-.237-.013-1.024-.013-1.862-2.512.463-3.162-.612-3.362-1.175-.113-.288-.6-1.175-1.025-1.413-.35-.187-.85-.65-.013-.662.788-.013 1.35.725 1.538 1.025.9 1.512 2.338 1.087 2.912.825.088-.65.35-1.087.638-1.337-2.225-.25-4.55-1.113-4.55-4.938 0-1.088.387-1.987 1.025-2.688-.1-.25-.45-1.275.1-2.65 0 0 .837-.262 2.75 1.026a9.28 9.28 0 0 1 2.5-.338c.85 0 1.7.112 2.5.337 1.912-1.3 2.75-1.024 2.75-1.024.55 1.375.2 2.4.1 2.65.637.7 1.025 1.587 1.025 2.687 0 3.838-2.337 4.688-4.562 4.938.362.312.675.912.675 1.85 0 1.337-.013 2.412-.013 2.75 0 .262.188.574.688.474A10.016 10.016 0 0 0 22 12c0-5.525-4.475-10-10-10z"></path>
@@ -147,7 +147,7 @@ export default function Navbar() {
         },
         {
             id: 'Email',
-            href: 'mailto:example@example.com',
+            href: 'https://mail.google.com/mail/?view=cm&fs=1&to=ayushtiwari0803@gmail.com',
             icon: <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none">
                 <path opacity="0.25" d="M1 6C1 4.34315 2.34315 3 4 3H20C21.6569 3 23 4.34315 23 6V18C23 19.6569 21.6569 21 20 21H4C2.34315 21 1 19.6569 1 18V6Z" fill="currentColor"></path>
                 <path fillRule="evenodd" clipRule="evenodd" d="M5.23177 7.35981C5.58534 6.93553 6.2159 6.87821 6.64018 7.23177L11.3598 11.1648C11.7307 11.4738 12.2693 11.4738 12.6402 11.1648L17.3598 7.23177C17.7841 6.87821 18.4147 6.93553 18.7682 7.35981C19.1218 7.78409 19.0645 8.41465 18.6402 8.76822L13.9205 12.7012C12.808 13.6284 11.192 13.6284 10.0794 12.7012L5.35981 8.76822C4.93553 8.41465 4.87821 7.78409 5.23177 7.35981Z" fill="currentColor"></path>
@@ -155,7 +155,7 @@ export default function Navbar() {
         },
         {
             id: 'Linkedin',
-            href: 'https://linkedin.com',
+            href: 'https://www.linkedin.com/in/ayushcodes1729/',
             icon: <FaLinkedinIn className="w-4 h-4" />
         }
     ];
@@ -208,6 +208,7 @@ export default function Navbar() {
                         <Link
                             key={link.id}
                             href={link.href}
+                            target="_blank"
                             className="relative flex items-center justify-center p-2 rounded-full text-gray-600 hover:text-black transition-colors duration-200 group"
                             onMouseEnter={() => handleMouseEnter(link.id)}
                         >
