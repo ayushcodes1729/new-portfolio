@@ -1,18 +1,25 @@
 "use client"
 
 import Link from "next/link"
-// import { MdDarkMode } from "react-icons/md";
+import { ReactNode, RefObject, useEffect, useRef } from "react";
+import { IconType } from "react-icons";
 import { CiDark } from "react-icons/ci";
 import { ImBlog } from "react-icons/im";
 import { FaLinkedinIn } from "react-icons/fa6";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { useEffect, useRef } from "react";
 import DarkModeToggle from "./darkMode";
 
+// Type for link objects
+interface NavLink {
+    id: string;
+    href: string;
+    icon: ReactNode;
+}
+
 export default function Navbar() {
-    const navbarRef = useRef(null);
-    const iconsRef = useRef({});
+    const navbarRef = useRef<HTMLUListElement | null>(null);
+    const iconsRef: RefObject<{ [key: string]: HTMLSpanElement | null }> = useRef({});
 
     // Register plugin once
     useEffect(() => {
@@ -22,14 +29,13 @@ export default function Navbar() {
     }, []);
 
     // Handle hover animations
-    const handleMouseEnter = (id) => {
-
+    const handleMouseEnter = (id: string) => {
         // Get all icon keys
-        const allIcons = [...navLinks, ...socialLinks, { id: 'theme' }];
+        const allIcons: NavLink[] = [...navLinks, ...socialLinks, { id: 'theme', href: '', icon: null }];
         const iconIndex = allIcons.findIndex(icon => icon.id === id);
 
         // Scale current icon
-        if (iconsRef.current[id]) {
+        if (iconsRef.current && iconsRef.current[id]) {
             gsap.to(iconsRef.current[id], {
                 scale: 2.5,
                 duration: 0.4,
@@ -39,7 +45,7 @@ export default function Navbar() {
 
         // Scale adjacent icons
         allIcons.forEach((icon, index) => {
-            if (icon.id !== id && iconsRef.current[icon.id]) {
+            if (icon.id !== id && iconsRef.current && iconsRef.current[icon.id]) {
                 const distance = Math.abs(index - iconIndex);
                 if (distance === 1) {
                     // Adjacent icons
@@ -73,15 +79,17 @@ export default function Navbar() {
 
     const handleMouseLeave = () => {
         // Reset all icons
-        Object.keys(iconsRef.current).forEach(key => {
-            if (iconsRef.current[key]) {
-                gsap.to(iconsRef.current[key], {
-                    scale: 1,
-                    duration: 0.4,
-                    ease: "power2.out" // Changed from power2.in for smoother transition
-                });
-            }
-        });
+        if (iconsRef.current) {
+            Object.keys(iconsRef.current).forEach(key => {
+                if (iconsRef.current[key]) {
+                    gsap.to(iconsRef.current[key], {
+                        scale: 1,
+                        duration: 0.4,
+                        ease: "power2.out"
+                    });
+                }
+            });
+        }
 
         // Reset navbar with fixed width
         if (navbarRef.current) {
@@ -90,20 +98,19 @@ export default function Navbar() {
                 paddingLeft: "1rem",
                 paddingRight: "1rem",
                 duration: 0.4,
-                ease: "power2.out" // Changed from power2.inOut for consistency
+                ease: "power2.out"
             });
         }
-
     };
 
     // Store refs for each icon element
-    const addIconRef = (id, el) => {
-        if (el) {
+    const addIconRef = (id: string, el: HTMLSpanElement | null) => {
+        if (el && iconsRef.current) {
             iconsRef.current[id] = el;
         }
     };
 
-    const navLinks = [
+    const navLinks: NavLink[] = [
         {
             id: 'Home',
             href: '/',
@@ -129,7 +136,7 @@ export default function Navbar() {
         }
     ];
 
-    const socialLinks = [
+    const socialLinks: NavLink[] = [
         {
             id: 'Twitter',
             href: 'https://x.com/ayushcodesweb',
@@ -223,7 +230,7 @@ export default function Navbar() {
 
                 <div className="h-5 w-px bg-gray-300 mx-2" />
                 <div 
-                            onMouseEnter={() => handleMouseEnter('theme')}
+                    onMouseEnter={() => handleMouseEnter('theme')}
                 >
                     <DarkModeToggle />
                 </div>
