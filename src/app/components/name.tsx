@@ -13,7 +13,7 @@ import React from "react";
 export default function Name() {
     const introRef = useRef(null);
 
-    const skills = [
+    const skills: { name: keyof typeof iconMap; logo: string; position: string }[] = [
         { name: "Nextjs", logo: "RiNextjsFill", position: "top-[17%] left-[6%]" },
         { name: "ReactJS", logo: "FaReact", position: "top-[8%] left-[32%]" },
         { name: "NodeJS", logo: "FaNodeJs", position: "top-[45%] left-[3%]" },
