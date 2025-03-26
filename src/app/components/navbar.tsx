@@ -7,7 +7,8 @@ import { ImBlog } from "react-icons/im";
 import { FaLinkedinIn } from "react-icons/fa6";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
+import DarkModeToggle from "./darkMode";
 
 export default function Navbar() {
     const navbarRef = useRef(null);
@@ -179,10 +180,10 @@ export default function Navbar() {
     }, []);
 
     return (
-        <nav className="fixed bottom-8 left-0 right-0 flex justify-center z-50">
+        <nav className="fixed bottom-8 left-0 right-0 flex justify-center sm:px-0 px-10 z-50">
             <ul
                 ref={navbarRef}
-                className="navbar-main flex items-center gap-2 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full shadow-lg border border-gray-200"
+                className="navbar-main not-sm:w-[80vw] sm:overflow-visible overflow-x-auto flex items-center sm:gap-2 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full shadow-lg border border-gray-200"
                 onMouseLeave={handleMouseLeave}
             >
                 <div className="flex gap-2">
@@ -221,17 +222,11 @@ export default function Navbar() {
                 </div>
 
                 <div className="h-5 w-px bg-gray-300 mx-2" />
-
-                <Link
-                    href="#"
-                    className="relative flex items-center justify-center p-2 rounded-full text-gray-600 hover:text-black transition-colors duration-200 group"
-                    onMouseEnter={() => handleMouseEnter('theme')}
+                <div 
+                            onMouseEnter={() => handleMouseEnter('theme')}
                 >
-                    <span className="absolute top-[-150%] bg-white/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg px-3 py-2 text-xs">Light</span>
-                    <span ref={(el) => addIconRef('theme', el)} className="inline-flex items-center justify-center">
-                        <CiDark className="w-4 h-4" />
-                    </span>
-                </Link>
+                    <DarkModeToggle />
+                </div>
             </ul>
         </nav>
     );

@@ -1,12 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa6";
 import { FaLink } from "react-icons/fa";
-
-
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 export default function Projects() {
     const projects = [
@@ -37,16 +37,24 @@ export default function Projects() {
             thumb: "/MedicThumb.png",
             link: "https://doctor-portal-one.vercel.app/",
             github: "https://github.com/ayushcodes1729/doctor-portal"
-        },
-        // ... other projects
+        }
     ];
 
+    useGSAP(() => {
+        gsap.from(".works", {
+            opacity: 0,
+            x: -500,
+            duration: 1.5,
+            ease: "power3.inOut",
+            stagger: 0.3
+        });
+    });
+
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-    const videoRefs = useRef<(HTMLVideoElement | null)[]>(projects.map(() => null))
 
     return (
         <>
-            <h1 className="xl:text-5xl md:text-3xl text-2xl py-4 w-full text-center">My Works</h1>
+            <h1 className="works text-5xl p-4 w-full font-bold">Recent Works</h1>
             <div className="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 px-4">
                 {projects.map((project, index) => (
                     <div
@@ -79,7 +87,7 @@ export default function Projects() {
                             transition-opacity duration-500`}>
                             <span className="xl:text-3xl text-xl font-semibold text-white">{project.name}</span>
                             <p className="xl:text-xl text-base mb-2">{project.description}</p>
-                            <div className=" absolute top-0 right-0 w-[25%] p-2 flex justify-between gap-1">
+                            <div className="absolute top-0 right-0 w-[25%] p-2 flex justify-between gap-1">
                                 <Link
                                     href={project.github}
                                     target="_blank"
@@ -92,9 +100,8 @@ export default function Projects() {
                                     target="_blank"
                                     className="flex justify-center items-center gap-2 py-1 text-center rounded-full p-1 text-sm"
                                 >
-                                    <FaLink  className="text-2xl"/>
+                                    <FaLink className="text-2xl"/>
                                 </Link>
-
                             </div>
                         </div>
                     </div>
