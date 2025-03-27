@@ -21,11 +21,10 @@ export default function Name() {
         { name: "Tailwind CSS", logo: "SiTailwindcss", position: "top-[10%] left-[60%]" },
         { name: "MongoDB", logo: "SiMongodb", position: "top-[85%] left-[8%]" },
         { name: "PostgreSQL", logo: "SiPostgresql", position: "top-[25%] left-[75%]" },
-        { name: "AWS", logo: "FaAws", position: "top-[82%] left-[85%]" },
+        // { name: "AWS", logo: "FaAws", position: "top-[82%] left-[85%]" },
         { name: "ExpressJS", logo: "SiExpress", position: "top-[40%] left-[80%]" },
-        { name: "GitHub Actions", logo: "SiGithubactions", position: "top-[83%] left-[50%]" },
-        { name: "CI/CD", logo: "MdSettingsEthernet", position: "top-[80%] left-[75%]" },
-        { name: "NGINX", logo: "SiNginx", position: "top-[65%] left-[5%]" },
+        // { name: "GitHub Actions", logo: "SiGithubactions", position: "top-[83%] left-[50%]" },
+        // { name: "CI/CD", logo: "MdSettingsEthernet", position: "top-[80%] left-[75%]" },
         { name: "Git", logo: "FaGitAlt", position: "top-[80%] left-[40%]" },
         { name: "VSCode", logo: "VscVscode", position: "top-[85%] left-[65%]" }
     ];
@@ -40,9 +39,8 @@ export default function Name() {
         PostgreSQL: SiPostgresql,
         AWS: FaAws,
         ExpressJS: SiExpress,
-        "GitHub Actions": SiGithubactions,
-        "CI/CD": MdSettingsEthernet,
-        NGINX: SiNginx,
+        // "GitHub Actions": SiGithubactions,
+        // "CI/CD": MdSettingsEthernet,
         Git: FaGitAlt,
         VSCode: VscVscode
     };
@@ -72,41 +70,54 @@ export default function Name() {
     });
 
     return (
-        <div className="flex md:flex-row flex-col items-center w-full md:w-screen min-h-[60vh] overflow-hidden relative px-4 md:px-0">
-            {/* Skills Overlay - Hidden on mobile */}
-            {skills.map((skill, index) => (
-                <div
-                    key={index}
-                    style={{ boxShadow: "rgba(255, 255, 255, 0.3) 0px 5px 15px", transition: "box-shadow 0.3s ease-in-out" }}
-                    className={`absolute filled-circle opacity-30 hidden lg:flex items-center gap-1 px-2 py-1 rounded-full -z-[1] ${skill.position}`}>
-                    {React.createElement(iconMap[skill.name])}
-                    {skill.name}
-                </div>
-            ))}
+        <>
+            <div className="flex md:flex-row flex-col items-center w-full md:w-screen min-h-[60vh] overflow-hidden relative px-4 md:px-0">
+                {/* Skills Overlay - Hidden on mobile */}
+                {skills.map((skill, index) => (
+                    <div
+                        key={index}
+                        style={{ boxShadow: "rgba(255, 255, 255, 0.3) 0px 5px 15px", transition: "box-shadow 0.3s ease-in-out" }}
+                        className={`absolute filled-circle opacity-30 hidden lg:flex items-center gap-1 px-2 py-1 rounded-full -z-[1] ${skill.position}`}>
+                        {React.createElement(iconMap[skill.name])}
+                        {skill.name}
+                    </div>
+                ))}
 
-            <div className="flex flex-col md:flex-row items-center justify-center w-full gap-8 md:gap-16">
-                {/* Profile Image */}
-                <div className="me md:w-[40%] w-full flex justify-center md:justify-end">
-                    <Image 
-                        src="/me-comp.png" 
-                        alt="my-image" 
-                        width={200} 
-                        height={200} 
-                        className="rounded-full w-40 h-40 md:w-68 md:h-68 object-cover" 
-                    />
-                </div>
+                <div className="flex flex-col md:flex-row items-center justify-center w-full gap-8 md:gap-16">
+                    {/* Profile Image */}
+                    <div className="me md:w-[40%] w-full flex justify-center md:justify-end">
+                        <Image
+                            src="/me-comp.png"
+                            alt="my-image"
+                            width={200}
+                            height={200}
+                            className="rounded-full w-40 h-40 md:w-68 md:h-68 object-cover"
+                        />
+                    </div>
 
-                {/* Intro Text */}
-                <div ref={introRef} className="flex flex-col md:gap-4 items-center md:items-start text-center md:text-left w-full md:w-[60%]">
-                    <span className="intro text-xl md:text-3xl">Hi, I am</span>
-                    <h1 className="intro text-3xl md:text-5xl font-semibold text-center md:text-left">
-                        Ayush Kumar
-                    </h1>
-                    <span className="intro text-lg md:text-3xl text-center md:text-left">
-                        I make cool <span className="text-amber-300">web apps</span> that solve real-world problems
-                    </span>
+                    {/* Intro Text */}
+                    <div ref={introRef} className="flex flex-col md:gap-4 gap-2 items-center md:items-start text-center md:text-left w-full md:w-[60%]">
+                        <span className="intro text-xl md:text-3xl">Hi, I am</span>
+                        <h1 className="intro text-3xl md:text-5xl font-semibold text-center md:text-left">
+                            Ayush Kumar
+                        </h1>
+                        <span className="intro text-lg md:text-3xl text-center md:text-left">
+                            I make cool <span className="text-amber-300">web apps</span> that solve real-world problems
+                        </span>
+                    </div>
                 </div>
             </div>
-        </div>
+            <div className="flex flex-wrap w-full justify-center">
+                {skills.map((skill, index) => (
+                    <div
+                        key={index}
+                        style={{ boxShadow: "rgba(255, 255, 255, 0.3) 0px 5px 15px", transition: "box-shadow 0.3s ease-in-out" }}
+                        className={`opacity-30 flex lg:hidden items-center gap-1 px-2 py-1 rounded-full -z-[1]`}>
+                        {React.createElement(iconMap[skill.name])}
+                        {skill.name}
+                    </div>
+                ))}
+            </div>
+        </>
     );
 }

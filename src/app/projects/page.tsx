@@ -43,22 +43,30 @@ export default function Projects() {
     useGSAP(() => {
         gsap.from(".works", {
             opacity: 0,
-            x: -500,
-            duration: 1.5,
+            x: -700,
+            duration: 2.5,
             ease: "power3.inOut",
             stagger: 0.3
         });
+
+        gsap.from(".cards",{
+            y:100,
+            opacity: 0,
+            duration: 1.5,
+            ease: "power3.inOut"
+        })
     });
 
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
     return (
         <>
-            <h1 className="works text-5xl p-4 w-full font-bold">Recent Works</h1>
-            <div className="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 px-4">
+            <h1 className="works text-5xl px-4 py-5 w-full font-bold">Recent Works</h1>
+            <hr className="w-[95%] py-2 works" />
+            <div className="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 px-4 my-8">
                 {projects.map((project, index) => (
                     <div
-                        className="relative rounded-2xl overflow-hidden group"
+                        className="cards relative rounded-2xl overflow-hidden group"
                         key={index}
                         style={{ boxShadow: "rgba(255, 255, 255, 0.1) 0px 5px 15px", transition: "box-shadow 0.3s ease-in-out" }}
                         onMouseEnter={(e) => {
