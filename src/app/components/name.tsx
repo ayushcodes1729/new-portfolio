@@ -67,6 +67,13 @@ export default function Name() {
             delay: 1,
             ease: "power3.inOut"
         });
+
+        gsap.from(".skills",{
+            y: 80,
+            opacity: 0,
+            duration: 3,
+            ease: "power3.inOut"
+        })
     });
 
     return (
@@ -112,7 +119,7 @@ export default function Name() {
                     <div
                         key={index}
                         style={{ boxShadow: "rgba(255, 255, 255, 0.3) 0px 5px 15px", transition: "box-shadow 0.3s ease-in-out" }}
-                        className={`opacity-30 flex lg:hidden items-center gap-1 px-2 py-1 rounded-full -z-[1]`}>
+                        className={`skills opacity-30 flex lg:hidden items-center gap-1 px-2 py-1 rounded-full -z-[1]`}>
                         {React.createElement(iconMap[skill.name])}
                         {skill.name}
                     </div>
