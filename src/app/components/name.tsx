@@ -107,7 +107,7 @@ export default function Name() {
                     </div>
                 </div>
             </div>
-            <div className="flex flex-wrap w-full justify-center">
+            <div className="flex flex-wrap w-full justify-center gap-2">
                 {skills.map((skill, index) => (
                     <div
                         key={index}
