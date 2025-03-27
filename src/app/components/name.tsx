@@ -71,7 +71,7 @@ export default function Name() {
 
     return (
         <>
-            <div className="flex md:flex-row flex-col items-center w-full md:w-screen min-h-[60vh] overflow-hidden relative px-4 md:px-0">
+            <div className="flex md:flex-row flex-col items-center w-full md:w-screen md:min-h-[60vh] min-h-[45vh] overflow-hidden relative px-4 md:px-0">
                 {/* Skills Overlay - Hidden on mobile */}
                 {skills.map((skill, index) => (
                     <div
