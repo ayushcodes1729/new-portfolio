@@ -90,25 +90,25 @@ export default function Projects() {
 
                         {/* Project Details */}
                         <div className={`absolute left-0 bottom-0 w-full h-full flex flex-col justify-end px-4 py-4 
-                            bg-black/60 text-white
+                            bg-linear-to-tl from-black/90 to-black/40 text-white
                             ${hoveredIndex === index ? 'opacity-100' : 'opacity-0'} 
-                            transition-opacity duration-500`}>
+                            transition-opacity duration-800`}>
                             <span className="xl:text-3xl text-xl font-semibold text-white">{project.name}</span>
                             <p className="xl:text-xl text-base mb-2">{project.description}</p>
-                            <div className="absolute top-0 right-0 w-[25%] p-2 flex justify-between gap-1">
+                            <div className="absolute top-0 right-0 p-2 flex gap-4">
                                 <Link
                                     href={project.github}
                                     target="_blank"
-                                    className="flex justify-center items-center gap-2 py-1 text-center rounded-full p-1 text-sm"
+                                    className="flex justify-center items-center py-1 text-center rounded-full  text-sm"
                                 >
-                                    <FaGithub className="text-2xl"/>
+                                    <FaGithub className="text-2xl text-white"/>
                                 </Link>
                                 <Link
                                     href={project.link}
                                     target="_blank"
-                                    className="flex justify-center items-center gap-2 py-1 text-center rounded-full p-1 text-sm"
+                                    className="flex justify-center items-center py-1 text-center rounded-full text-sm"
                                 >
-                                    <FaLink className="text-2xl"/>
+                                    <FaLink className="text-2xl text-white"/>
                                 </Link>
                             </div>
                         </div>
